@@ -1,6 +1,8 @@
 package com.lokodom.sportsuperstars.domain.useCases
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.lokodom.sportsuperstars.data.repository.MainRepository
 import com.lokodom.sportsuperstars.domain.model.TablePosition
@@ -19,8 +21,9 @@ class GetTableResultsUseCase @Inject constructor(
 
         }catch (e:Exception){
 
-            Toast.makeText(context,"${e.message}",Toast.LENGTH_SHORT).show()
-
+            Handler(Looper.getMainLooper()).post {
+                Toast.makeText(context,"${e.message}",Toast.LENGTH_SHORT).show()
+            }
         }
         return favList
     }
