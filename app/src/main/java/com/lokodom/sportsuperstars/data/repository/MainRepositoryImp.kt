@@ -53,14 +53,24 @@ class MainRepositoryImp @Inject constructor(
         val finalList = mutableListOf<TablePosition>()
 
         for (i in 0 until listSize){
+            var goalsA= ""
+            var goalsF= ""
+            var goalsD= ""
+
             val name = sportsApi.getTableResults(id, season).table[i].name
             val thumb = sportsApi.getTableResults(id, season).table[i].thumb
             val wins = sportsApi.getTableResults(id, season).table[i].wins
             val losses = sportsApi.getTableResults(id, season).table[i].losses
             val draws = sportsApi.getTableResults(id, season).table[i].draws
-            val goalsF = sportsApi.getTableResults(id, season).table[i].goalsF
-            val goalsA = sportsApi.getTableResults(id, season).table[i].goalsA
-            val goalsD = sportsApi.getTableResults(id, season).table[i].goalsD
+            if (sportsApi.getTableResults(id, season).table[i].goalsF != null){
+                goalsF = sportsApi.getTableResults(id, season).table[i].goalsF.toString()
+            }
+            if (sportsApi.getTableResults(id, season).table[i].goalsA != null){
+                goalsA = sportsApi.getTableResults(id, season).table[i].goalsA.toString()
+            }
+            if (sportsApi.getTableResults(id, season).table[i].goalsD != null){
+                goalsD = sportsApi.getTableResults(id, season).table[i].goalsD.toString()
+            }
             val points = sportsApi.getTableResults(id, season).table[i].points
             val position = sportsApi.getTableResults(id, season).table[i].position
 

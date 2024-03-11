@@ -14,11 +14,11 @@ data class TablePositionDto(
     @field:Json(name = "intDraw")
     val draws : String,
     @field:Json(name = "intGoalsFor")
-    val goalsF : String,
+    val goalsF : String?,
     @field:Json(name = "intGoalsAgainst")
-    val goalsA : String,
+    val goalsA : String?,
     @field:Json(name = "intGoalsDifference")
-    val goalsD : String,
+    val goalsD : String?,
     @field:Json(name = "intPoints")
     val points : String,
     @field:Json(name = "intRank")
